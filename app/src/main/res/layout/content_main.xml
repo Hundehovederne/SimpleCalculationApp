@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +9,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:background="#5bc0de"
+    android:background="#87ceeb"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.jakobwilhjelmpoulsen.simplecalculationapp.MainActivity"
@@ -17,117 +19,166 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
+        android:inputType="text"
         android:id="@+id/editText"
-        android:hint="Number 1"
-        android:layout_below="@+id/textView"
+        android:hint="Appliance name:"
+        android:textSize="10dp"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColor="#000000"
+        android:textColorLink="#000000"
+        android:backgroundTint="#ffffff"
+        android:layout_marginTop="43dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:autoText="false" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
+        android:inputType="numberDecimal"
         android:id="@+id/editText2"
+        android:textSize="10dp"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColor="#000000"
+        android:textColorLink="#000000"
         android:layout_below="@+id/editText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="46dp"
-        android:hint="Number 2" />
+        android:hint="Appliance usage in watt:"
+        android:backgroundTint="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:id="@+id/editText3"
+        android:textSize="10dp"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColor="#000000"
+        android:textColorLink="#000000"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Hours used per day:"
+        android:backgroundTint="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:id="@+id/editText4"
+        android:textSize="10dp"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColor="#000000"
+        android:textColorLink="#000000"
+        android:layout_below="@+id/editText3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="How many øre do you pay per KwH?"
+        android:backgroundTint="#ffffff" />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calculate"
-        android:id="@+id/button"
-        android:onClick="onButtonClick"
-        android:layout_below="@+id/editText2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textView"
-        android:hint=""
-        android:layout_alignTop="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Result:"
-        android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Satisfied"
-        android:id="@+id/checkBox"
-        android:layout_below="@+id/button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="41dp"
-        android:checked="false" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dissatisfied"
-        android:id="@+id/checkBox2"
-        android:layout_below="@+id/checkBox"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="false" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:id="@+id/sumbitButton"
-        android:layout_below="@+id/checkBox2"
+        android:id="@+id/button"
+        android:onClick="onButtonClick"
+        android:textColor="#000000"
+        android:backgroundTint="#ffffff"
+        android:background="#ffffff"
+        android:layout_below="@+id/editText4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:textSize="10dp"
+        android:id="@+id/applName"
+        android:layout_marginTop="15dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <RatingBar
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:layout_above="@+id/checkBox2"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button"
-        android:numStars="3"
-        android:stepSize="1" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Rating"
-        android:id="@+id/RatingText"
-        android:layout_below="@+id/ratingBar"
-        android:layout_toRightOf="@+id/editText2"
-        android:layout_toEndOf="@+id/editText2" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:textSize="10dp"
+        android:textColor="#000000"
+        android:id="@+id/watt"
+        android:layout_below="@+id/applName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="+"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/editText"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:textSize="10dp"
+        android:textColor="#000000"
+        android:id="@+id/timeUsed"
+        android:layout_below="@+id/watt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:textSize="10dp"
+        android:textColor="#000000"
+        android:id="@+id/ratePrice"
+        android:layout_below="@+id/timeUsed"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:textSize="10dp"
+        android:textColor="#000000"
+        android:id="@+id/kwHour"
+        android:layout_below="@+id/ratePrice"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=""
+        android:textSize="10dp"
+        android:textColor="#000000"
+        android:id="@+id/totalPrice"
+        android:layout_below="@+id/kwHour"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="WattUp?"
+        android:id="@+id/headline"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="21dp" />
+        android:typeface="serif" />
+
 
 </RelativeLayout>

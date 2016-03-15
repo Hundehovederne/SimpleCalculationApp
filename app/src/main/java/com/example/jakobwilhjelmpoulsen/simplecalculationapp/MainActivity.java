@@ -1,118 +1,62 @@
 package com.example.jakobwilhjelmpoulsen.simplecalculationapp;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
-    private CheckBox checkBox1, checkBox2;
     private Button subm;
-    private RatingBar ratingBar;
-    private TextView ratingText;
+    String applName;
+    double wattCalc;
+    double timeCalc;
+    double kwhCalc;
+    double rateCalc;
+    double priceCalc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        addListenerOnButton();
-        addListenerToCheckBox();
-        addListenerToCheckBox2();
-        listenerForRatingBar();
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),"BodoniFLF-Bold.ttf");
+        TextView header = (TextView) findViewById(R.id.headline);
+        header.setTypeface(custom_font);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
     }
 
     public void onButtonClick(View V) {
         EditText e1 = (EditText) findViewById(R.id.editText);
         EditText e2 = (EditText) findViewById(R.id.editText2);
-        TextView t1 = (TextView) findViewById(R.id.textView);
-        int num1 = Integer.parseInt(e1.getText().toString());
-        int num2 = Integer.parseInt(e2.getText().toString());
-        int sum = num1 + num2;
-        t1.setText(Integer.toString(sum));
+        EditText e3 = (EditText) findViewById(R.id.editText3);
+        EditText e4 = (EditText) findViewById(R.id.editText4);
+        TextView t1 = (TextView) findViewById(R.id.applName);
+        TextView t2 = (TextView) findViewById(R.id.watt);
+        TextView t3 = (TextView) findViewById(R.id.timeUsed);
+        TextView t4 = (TextView) findViewById(R.id.ratePrice);
+        TextView t5 = (TextView) findViewById(R.id.totalPrice);
 
+        applName = e1.getText().toString();
+        wattCalc = Double.parseDouble(e2.getText().toString());
+        timeCalc = Double.parseDouble(e3.getText().toString());
+        rateCalc = Double.parseDouble(e4.getText().toString());
+        kwhCalc = (wattCalc)/(1000)*(timeCalc);
+        priceCalc = (rateCalc)*(kwhCalc)/(100);
+
+        t1.setText("Appliance: " + applName);
+        t2.setText("Appliance Watt: " + Double.toString(wattCalc));
+        t3.setText(applName + "Uses: " + Double.toString((kwhCalc)/(timeCalc)) + " kilowatts per hour");
+        t4.setText("Your watt rate is: " + Double.toString(rateCalc) + " øre per kWh");
+        t5.setText("Price pr. day: " + Double.toString(priceCalc) + " kr" +
+                "\nPrice pr. month: " + Double.toString((priceCalc)*30) + " kr"+
+                "\nPrice pr. year: " + Double.toString((priceCalc)*365) + " kr");
     }
-
-    public void addListenerOnButton() {
-        checkBox1 = (CheckBox) findViewById(R.id.checkBox);
-        checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
-        subm = (Button) findViewById(R.id.sumbitButton);
-        ratingBar = (RatingBar)findViewById(R.id.ratingBar);
-
-        subm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                StringBuffer result = new StringBuffer();
-                result.append("Satisfied :").append(checkBox1.isChecked());
-                result.append("\nDissatisfied :").append(checkBox2.isChecked());
-
-                Toast.makeText(MainActivity.this, result.toString(),
-                        Toast.LENGTH_SHORT).show();
-            }
-
-        });
-    }
-
-
-    public void addListenerToCheckBox() {
-        checkBox1 = (CheckBox) findViewById(R.id.checkBox);
-        checkBox1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (((CheckBox) v).isChecked()) {
-                    Toast.makeText(MainActivity.this, "Satisfied is selected", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
-    public void addListenerToCheckBox2() {
-        checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
-        checkBox2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (((CheckBox) v).isChecked()) {
-                    Toast.makeText(MainActivity.this, "Dissatisfied is selected", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
-    public void listenerForRatingBar(){
-        ratingBar = (RatingBar)findViewById(R.id.ratingBar);
-        ratingText = (TextView)findViewById(R.id.RatingText);
-
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                ratingText.setText(String.valueOf(rating));
-            }
-        });
-
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
