@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:theme="@style/Theme.AppCompat.NoActionBar"
+    android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -91,6 +91,7 @@
         android:textColor="#000000"
         android:backgroundTint="#ffffff"
         android:background="#ffffff"
+        android:textSize="13dp"
         android:layout_below="@+id/editText4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -103,11 +104,12 @@
         android:text=""
         android:textSize="10dp"
         android:id="@+id/applName"
-        android:layout_marginTop="15dp"
         android:textColor="#000000"
-        android:layout_below="@+id/button"
+        android:layout_below="@id/button"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -179,6 +181,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:typeface="serif" />
-
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=""
+        android:id="@+id/bottomLine"
+        android:typeface="serif"
+        android:layout_marginBottom="27dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

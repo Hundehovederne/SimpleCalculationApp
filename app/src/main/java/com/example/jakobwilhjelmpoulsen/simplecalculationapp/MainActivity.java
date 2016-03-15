@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         Typeface custom_font = Typeface.createFromAsset(getAssets(),"BodoniFLF-Bold.ttf");
         TextView header = (TextView) findViewById(R.id.headline);
         header.setTypeface(custom_font);
+        TextView bottom = (TextView) findViewById(R.id.bottomLine);
+        bottom.setTypeface(custom_font);
 
 
     }
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         TextView t3 = (TextView) findViewById(R.id.timeUsed);
         TextView t4 = (TextView) findViewById(R.id.ratePrice);
         TextView t5 = (TextView) findViewById(R.id.totalPrice);
+        TextView t6 = (TextView) findViewById(R.id.bottomLine);
 
         applName = e1.getText().toString();
         wattCalc = Double.parseDouble(e2.getText().toString());
@@ -51,11 +54,12 @@ public class MainActivity extends AppCompatActivity {
 
         t1.setText("Appliance: " + applName);
         t2.setText("Appliance Watt: " + Double.toString(wattCalc));
-        t3.setText(applName + "Uses: " + Double.toString((kwhCalc)/(timeCalc)) + " kilowatts per hour");
+        t3.setText(applName + " uses: " + Double.toString((kwhCalc)/(timeCalc)) + " kilowatts per hour");
         t4.setText("Your watt rate is: " + Double.toString(rateCalc) + " øre per kWh");
-        t5.setText("Price pr. day: " + Double.toString(priceCalc) + " kr" +
-                "\nPrice pr. month: " + Double.toString((priceCalc)*30) + " kr"+
-                "\nPrice pr. year: " + Double.toString((priceCalc)*365) + " kr");
+        t5.setText(applName + " cost you: " + Double.toString(priceCalc) + " kr pr. day" +
+                "\n" + applName + " cost you: " + Double.toString((priceCalc)*30) + " kr pr. day" +
+                "\n" + applName + " cost you: " + Double.toString((priceCalc)*365) + " kr pr. day");
+        t6.setText("Thats Whatt'sUp!");
     }
 
     @Override
